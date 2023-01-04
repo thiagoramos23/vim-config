@@ -1,0 +1,97 @@
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+-- Only required if you have packer configured as `opt`
+vim.cmd [[packadd packer.nvim]]
+
+return require('packer').startup(function(use)
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'windwp/nvim-spectre'
+  use 'tpope/vim-projectionist'
+
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+
+	use({
+		'rose-pine/neovim',
+		as = 'rose-pine',
+		config = function()
+			vim.cmd('colorscheme rose-pine')
+		end
+	})
+
+  use({
+    'morhetz/gruvbox',
+    as = 'gruvbox',
+    config = function()
+      vim.cmd('colorscheme gruvbox')
+    end
+  })
+
+  use({
+    'overcache/NeoSolarized',
+    config = function()
+      vim.cmd('colorscheme NeoSolarized')
+    end
+  })
+
+  -- Treesitter
+	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use('nvim-treesitter/playground')
+  use('nvim-treesitter/nvim-treesitter-context')
+  use('kyazdani42/nvim-web-devicons')
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+
+	use('mbbill/undotree')
+	use('tpope/vim-fugitive')
+  use('shumphrey/fugitive-gitlab.vim')
+  use('tveskag/nvim-blame-line')
+  use('Yggdroot/indentLine')
+
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+
+			-- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+			{'saadparwaiz1/cmp_luasnip'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-nvim-lua'},
+
+			-- Snippets
+			{'L3MON4D3/LuaSnip'},
+			{'rafamadriz/friendly-snippets'},
+		}
+	}
+
+  use('voldikss/vim-floaterm')
+  use('preservim/nerdcommenter')
+  use('mg979/vim-visual-multi')
+  use('preservim/vimux')
+  use('pgr0ss/vimux-ruby-test')
+  use('christoomey/vim-tmux-navigator')
+  use('vim-test/vim-test')
+  use('thiagoramos23/jump-to-test-file')
+
+  -- Airline
+  use('vim-airline/vim-airline')
+  use('vim-airline/vim-airline-themes')
+
+  -- GitGutter
+  use('airblade/vim-gitgutter')
+
+  use('neoclide/coc.nvim', {branch =  'release', run = 'yarn install --frozen-lockfile'})
+end)
+
+
+
