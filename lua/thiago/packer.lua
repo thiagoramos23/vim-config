@@ -1,7 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
@@ -9,6 +8,10 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'windwp/nvim-spectre'
   use 'tpope/vim-projectionist'
+  use 'phoenixframework/tree-sitter-heex'
+
+  -- To improve buffer deletion
+  use {'ojroques/nvim-bufdel'}
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -16,27 +19,9 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			vim.cmd('colorscheme rose-pine')
-		end
-	})
-
   use({
     'morhetz/gruvbox',
     as = 'gruvbox',
-    config = function()
-      vim.cmd('colorscheme gruvbox')
-    end
-  })
-
-  use({
-    'overcache/NeoSolarized',
-    config = function()
-      vim.cmd('colorscheme NeoSolarized')
-    end
   })
 
   -- Treesitter

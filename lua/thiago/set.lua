@@ -33,10 +33,15 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "130"
-
+vim.opt.wildmenu = true
 vim.opt.hidden = true
-vim.cmd [[set termguicolors]]
-vim.cmd [[set clipboard+=unnamed]]
+
+vim.cmd([[ 
+  filetype plugin indent on
+  syntax on
+]])
+vim.cmd([[set termguicolors]])
+vim.cmd([[set clipboard+=unnamed]])
 
 vim.opt.foldlevel = 3
 vim.opt.foldmethod = "expr"

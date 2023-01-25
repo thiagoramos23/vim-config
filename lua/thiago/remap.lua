@@ -21,7 +21,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate Buffers
 vim.keymap.set("n", "<leader>v", ":bnext<CR>", opts)
 vim.keymap.set("n", "<leader>z", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>d", ":bd<CR>", opts)
+vim.keymap.set("n", "<leader>d", ":BufDel<CR>", opts)
 vim.keymap.set("n", "<C-s>", ":bpick<CR>", opts)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
