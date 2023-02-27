@@ -24,6 +24,23 @@ return require('packer').startup(function(use)
     as = 'gruvbox',
   })
 
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+
+  -- Bookmark
+  use('MattesGroeger/vim-bookmarks')
+
+  -- FZF
+  use {
+    'ibhagwan/fzf-lua', branch = 'main',
+    requires= { {'nvim-tree/nvim-web-devicons'} }
+  }
+
   -- Treesitter
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
@@ -73,7 +90,11 @@ return require('packer').startup(function(use)
   use('vim-airline/vim-airline-themes')
 
   -- GitGutter
-  use('airblade/vim-gitgutter')
+  --use('airblade/vim-gitgutter')
+  --GitSigns
+  use {
+    'lewis6991/gitsigns.nvim'
+  }
 
   use('neoclide/coc.nvim', {branch =  'release', run = 'yarn install --frozen-lockfile'})
 end)

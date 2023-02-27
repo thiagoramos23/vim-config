@@ -125,6 +125,16 @@ _G.packer_plugins = {
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/fugitive-gitlab.vim",
     url = "https://github.com/shumphrey/fugitive-gitlab.vim"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -185,6 +195,11 @@ _G.packer_plugins = {
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/nvim-spectre",
     url = "https://github.com/windwp/nvim-spectre"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -239,6 +254,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
+  },
+  ["vim-bookmarks"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/vim-bookmarks",
+    url = "https://github.com/MattesGroeger/vim-bookmarks"
   },
   ["vim-floaterm"] = {
     loaded = true,

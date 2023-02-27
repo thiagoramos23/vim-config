@@ -46,6 +46,8 @@ vim.diagnostic.config({
   virtual_text = true,
 })
 
+vim.lsp.set_log_level("info")
+
 vim.api.nvim_command("au BufWritePre *.ex lua vim.lsp.buf.format()")
 vim.api.nvim_command("au BufWritePre *.exs lua vim.lsp.buf.format()")
 vim.api.nvim_command("au BufWritePre *.heex lua vim.lsp.buf.format()")
