@@ -11,13 +11,16 @@ local config = {
             }
         },
     },
+    update_focused_file = {
+        enable = false,
+        update_cwd = true
+    },
     actions = {
         open_file = {
             quit_on_open = false
         }
     }
 }
-
 --vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<cr>" ,{silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeFindFileToggle<cr>" ,{silent = true, noremap = true})
 require('nvim-tree').setup(config)

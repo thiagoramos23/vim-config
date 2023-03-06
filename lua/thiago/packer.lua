@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     'morhetz/gruvbox',
     as = 'gruvbox',
   })
+  use 'folke/tokyonight.nvim'
 
   use {
     'nvim-tree/nvim-tree.lua',
@@ -95,6 +96,14 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim'
   }
+
+  -- GIT WORKTREE
+  use { 'ThePrimeagen/git-worktree.nvim' }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use { 'nvim-lua/popup.nvim' } 
 
   use('neoclide/coc.nvim', {branch =  'release', run = 'yarn install --frozen-lockfile'})
 end)

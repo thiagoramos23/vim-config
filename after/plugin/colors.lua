@@ -1,6 +1,6 @@
 function ColorMyPencils(color, background)
   background = background or "dark"
-	color = color or "gruvbox"
+	color = color or "tokyonight-storm"
   vim.o.background = background
 
   if background == "light" then
