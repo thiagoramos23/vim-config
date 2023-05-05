@@ -36,7 +36,7 @@ vim.opt.colorcolumn = "130"
 vim.opt.wildmenu = true
 vim.opt.hidden = true
 
-vim.cmd([[ 
+vim.cmd([[
   filetype plugin indent on
   syntax on
 ]])
@@ -50,6 +50,3 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.splitright = true
 vim.opt.errorbells = false
 vim.opt.showmode = false
-
-
-

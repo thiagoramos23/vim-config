@@ -1,10 +1,10 @@
 function ColorMyPencils(color, background)
   background = background or "dark"
-	color = color or "tokyonight-storm"
+  color = color or "gruvbox"
   vim.o.background = background
 
   if background == "light" then
-    vim.g["gruvbox_contrast_light"] = "soft"
+    vim.g["gruvbox_contrast_light"] = "medium"
     vim.g["airline_theme"] = "solarized"
     vim.g["airline_solarized_bg"] = "light"
   else
@@ -12,7 +12,7 @@ function ColorMyPencils(color, background)
     vim.g["airline_theme"] = "bubblegum"
   end
 
-	vim.cmd.colorscheme(color)
+  vim.cmd.colorscheme(color)
 end
 
 ColorMyPencils()
