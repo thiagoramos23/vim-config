@@ -23,8 +23,11 @@ return require('packer').startup(function(use)
     'morhetz/gruvbox',
     as = 'gruvbox',
   })
+  use 'shaunsingh/solarized.nvim'
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
+
+  use('mhartington/formatter.nvim')
 
   use {
     'nvim-tree/nvim-tree.lua',
@@ -111,4 +114,7 @@ return require('packer').startup(function(use)
 
   --Split Join
   use { "AndrewRadev/splitjoin.vim" }
+
+  -- TailwndCSS Headwind
+  use "steelsojka/headwind.nvim"
 end)

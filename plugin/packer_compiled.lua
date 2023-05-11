@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -154,6 +159,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
+  },
+  ["headwind.nvim"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/headwind.nvim",
+    url = "https://github.com/steelsojka/headwind.nvim"
   },
   indentLine = {
     loaded = true,
@@ -254,6 +264,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["solarized.nvim"] = {
+    loaded = true,
+    path = "/Users/thiago/.local/share/nvim/site/pack/packer/start/solarized.nvim",
+    url = "https://github.com/shaunsingh/solarized.nvim"
   },
   ["splitjoin.vim"] = {
     loaded = true,

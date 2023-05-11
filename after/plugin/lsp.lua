@@ -1,108 +1,158 @@
-local lsp = require('lsp-zero')
+local lsp = require("lsp-zero")
 
-lsp.preset('recommended')
+lsp.preset("recommended")
 lsp.ensure_installed({
-  'tsserver',
-  'rust_analyzer',
-  'elixirls',
-  'tailwindcss'
+	"tsserver",
+	"rust_analyzer",
+	"elixirls",
+	"tailwindcss",
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  --vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
+	local opts = { buffer = bufnr, remap = false, autoformat = false }
+	vim.keymap.set("n", "K", function()
+		vim.lsp.buf.hover()
+	end, opts)
+	--vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.format_on_save({
-  servers = {
-    ['lua_ls'] = { 'lua' },
-    ['rust_analyzer'] = { 'rust' },
-  }
+--lsp.format_on_save({
+--servers = {
+--['lua_ls'] = { 'lua' },
+--['rust_analyzer'] = { 'rust' },
+--}
+--})
+
+lsp.configure("tailwindcss", {
+	filetypes = {
+		"aspnetcorerazor",
+		"astro",
+		"astro-markdown",
+		"blade",
+		"clojure",
+		"django-html",
+		"htmldjango",
+		"edge",
+		"eelixir",
+		"elixir",
+		"ejs",
+		"erb",
+		"eruby",
+		"gohtml",
+		"haml",
+		"handlebars",
+		"hbs",
+		"html",
+		"html-eex",
+		"heex",
+		"jade",
+		"leaf",
+		"liquid",
+		"markdown",
+		"mdx",
+		"mustache",
+		"njk",
+		"nunjucks",
+		"php",
+		"razor",
+		"slim",
+		"twig",
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"stylus",
+		"sugarss",
+		"javascript",
+		"javascriptreact",
+		"reason",
+		"rescript",
+		"typescript",
+		"typescriptreact",
+		"vue",
+		"svelte",
+	},
+	init_options = {
+		userLanguages = {
+			elixir = "phoenix-heex",
+			eruby = "erb",
+			heex = "phoenix-heex",
+			svelte = "html",
+			surface = "phoenix-heex",
+		},
+	},
+	handlers = {
+		["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
+			vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
+		end,
+	},
+	settings = {
+		includeLanguages = {
+			typescript = "javascript",
+			typescriptreact = "html",
+			["html-eex"] = "html",
+			["phoenix-heex"] = "html",
+			heex = "html",
+			eelixir = "html",
+			elixir = "html",
+			elm = "html",
+			erb = "html",
+			svelte = "html",
+			surface = "html",
+		},
+		tailwindCSS = {
+			lint = {
+				cssConflict = "warning",
+				invalidApply = "error",
+				invalidConfigPath = "error",
+				invalidScreen = "error",
+				invalidTailwindDirective = "error",
+				invalidVariant = "error",
+				recommendedVariantOrder = "warning",
+			},
+			experimental = {
+				classRegex = {
+					[[class= "([^"]*)]],
+					[[class: "([^"]*)]],
+					'~H""".*class="([^"]*)".*"""',
+				},
+			},
+			validate = true,
+		},
+	},
 })
 
-lsp.configure('tailwindcss', {
-  filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
-  init_options = {
-    userLanguages = {
-      elixir = "phoenix-heex",
-      eruby = "erb",
-      heex = "phoenix-heex",
-      svelte = "html",
-      surface = "phoenix-heex"
-    },
-  },
-  handlers = {
-    ["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
-      vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
-    end,
-  },
-  settings = {
-    includeLanguages = {
-      typescript = "javascript",
-      typescriptreact = "html",
-      ["html-eex"] = "html",
-      ["phoenix-heex"] = "html",
-      heex = "html",
-      eelixir = "html",
-      elixir = "html",
-      elm = "html",
-      erb = "html",
-      svelte = "html",
-      surface = "html"
-    },
-    tailwindCSS = {
-      lint = {
-        cssConflict = "warning",
-        invalidApply = "error",
-        invalidConfigPath = "error",
-        invalidScreen = "error",
-        invalidTailwindDirective = "error",
-        invalidVariant = "error",
-        recommendedVariantOrder = "warning",
-      },
-      experimental = {
-        classRegex = {
-          [[class= "([^"]*)]],
-          [[class: "([^"]*)]],
-          '~H""".*class="([^"]*)".*"""',
-        },
-      },
-      validate = true,
-    },
-  },
+lsp.configure("elixirls", {
+	settings = {
+		elixirLS = {
+			filetypes = { "elixir", "eelixir" },
+			dialyzerEnabled = false,
+			fetchDeps = false,
+			enableTestLenses = true,
+		},
+	},
 })
 
-lsp.configure('elixirls', {
-  settings = {
-    elixirLS = {
-      filetypes = { "elixir", "eelixir" },
-      dialyzerEnabled = false,
-      fetchDeps = false,
-      enableTestLenses = true,
-    }
-  }
-})
-
-lsp.configure('sumneko_lua', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
+lsp.configure("sumneko_lua", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 })
 
 lsp.setup()
 
 vim.diagnostic.config({
-  virtual_text = true,
+	virtual_text = true,
 })
 
 vim.lsp.set_log_level("info")
@@ -129,7 +179,6 @@ vim.api.nvim_command("au InsertLeave,WinEnter,BufReadPost,FileReadPost * normal 
 --api.nvim_command('augroup END')
 --end
 --end
-
 
 --local autoCommands = {
 ---- other autocommands
